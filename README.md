@@ -14,6 +14,7 @@ Install the module with: `npm install foundry-release-base`
 // Inside of `my-release-command.js`
 // Define our command
 var FoundryReleaseBase = require('foundry-release-base');
+var pkg = require('./package.json');
 var myReleaseCommand = new FoundryReleaseBase({
     // Define action to run on `my-release-plugin update-files`
     updateFiles: function (version, message) {
@@ -32,6 +33,7 @@ var myReleaseCommand = new FoundryReleaseBase({
         // Publish our package to its repository
     }
 });
+myReleaseCommand.version(pkg.version);
 
 // Parse CLI arguments
 myReleaseCommand.parse(process.argv);
@@ -48,10 +50,44 @@ node my-release-command.js publish "1.0.0" "Release 1.0.0"
 ```
 
 ## Documentation
-_(Coming soon)_
+`foundry-release-base` exposes `FoundryReleaseBase` via its `module.exports`.
 
-## Examples
-_(Coming soon)_
+### `FoundryReleaseBase(params)`
+`FoundryReleaseBase` is a constructor that inherits from `Command` from [commander.js][].
+
+- params `Object` - Container for methods and options
+    - updateFiles `Function` - Optional function that updates package's files as part of its release
+        - For example, this could update `package.json` for an `npm` release
+        - Function signature should match `function (version, message)`
+    - updateFilesDescription `String` - Optional description to use for `update-files` command in `--help`
+    - commit `Function` - Optional function that saves changes to files as part of its release
+        - For example, this could run `git commit` for a `git` release
+        - Function signature should match `function (version, message)`
+    - commitDescription `String` - Optional description to use for `commit` command in `--help`
+    - register `Function` - Optional function that register package to its repository as part of its release
+        - For example, this could run `bower register` for a `bower` release
+        - Function signature should match `function (version, message)`
+    - registerDescription `String` - Optional description to use for `register` command in `--help`
+    - publish `Function` - Optional function that publish package to its repository as part of its release
+        - For example, this could run `npm publish` for an `npm` release
+        - Function signature should match `function (version, message)`
+    - publishDescription `String` - Optional description to use for `publish` command in `--help`
+
+[commander.js]: https://github.com/visionmedia/commander.js
+
+#### `foundryReleaseBase.*`
+`FoundryReleaseBase` inherits from `Command` from [commander.js][]. As a result, we support all of the methods provided by [commander.js][]. This include `.version()`, `.parse()`. Please see [commander.js][]' documentation for more information.
+
+```js
+// Add support for running `--version` on CLI
+var pkg = require('./package.json');
+myReleaseCommand.version(pkg.version);
+
+// Interpret CLI argument
+myReleaseCommand.parse(process.argv);
+```
+
+Documentation: https://github.com/tj/commander.js
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
