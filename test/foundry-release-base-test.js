@@ -81,7 +81,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('returns the spec version', function () {
-      expect(this.stdout).to.match(/^\d+\.\d+\.\d+$/);
+      expect(this.stdout).to.match(/^\d+\.\d+\.\d+\n$/);
     });
   });
 
