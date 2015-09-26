@@ -72,9 +72,9 @@ describe('A full command based on foundry-release-base', function () {
   });
 });
 
-describe('An empty command based on foundry-release-base', function () {
+describe.only('An empty command based on foundry-release-base', function () {
   var emptyCommandArr = ['node', __dirname + '/test-files/empty-command.js'];
-  describe.only('running --spec-version', function () {
+  describe('running --spec-version', function () {
     childUtils.exec(quote(emptyCommandArr.concat(['--spec-version'])));
 
     it('has no errors', function () {
@@ -96,7 +96,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('has no output', function () {
-      expect(this.stdout).to.match('');
+      expect(this.stdout).to.equal('');
     });
   });
 
@@ -109,7 +109,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('has no output', function () {
-      expect(this.stdout).to.match('');
+      expect(this.stdout).to.equal('');
     });
   });
 
@@ -122,7 +122,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('has no output', function () {
-      expect(this.stdout).to.match('');
+      expect(this.stdout).to.equal('');
     });
   });
 
@@ -135,7 +135,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('has no output', function () {
-      expect(this.stdout).to.match('');
+      expect(this.stdout).to.equal('');
     });
   });
 });
