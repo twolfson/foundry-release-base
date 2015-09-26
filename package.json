@@ -26,7 +26,9 @@
     "pretest": "twolfson-style install",
     "test": "npm run precheck && mocha --reporter dot && npm run lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "~2.8.1"
+  },
   "devDependencies": {
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
