@@ -5,8 +5,9 @@ var childUtils = require('./utils/child');
 
 // Start our tests
 describe('A full command based on foundry-release-base', function () {
+  var fullCommandArr = ['node', __dirname + '/test-files/full-command.js'];
   describe('running --spec-version', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/full-command.js', '--spec-version']));
+    childUtils.exec(quote(fullCommandArr.concat(['--spec-version'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -19,7 +20,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running update-files', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/full-command.js', 'update-files']));
+    childUtils.exec(quote(fullCommandArr.concat(['update-files', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -32,7 +33,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running commit', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/full-command.js', 'commit']));
+    childUtils.exec(quote(fullCommandArr.concat(['commit', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -45,7 +46,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running register', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/full-command.js', 'register']));
+    childUtils.exec(quote(fullCommandArr.concat(['register', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -58,7 +59,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running publish', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/full-command.js', 'publish']));
+    childUtils.exec(quote(fullCommandArr.concat(['publish', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -72,8 +73,9 @@ describe('A full command based on foundry-release-base', function () {
 });
 
 describe('An empty command based on foundry-release-base', function () {
+  var emptyCommandArr = ['node', __dirname + '/test-files/empty-command.js'];
   describe.only('running --spec-version', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/empty-command.js', '--spec-version']));
+    childUtils.exec(quote(emptyCommandArr.concat(['--spec-version'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -86,7 +88,7 @@ describe('An empty command based on foundry-release-base', function () {
   });
 
   describe('running update-files', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/empty-command.js', 'update-files']));
+    childUtils.exec(quote(emptyCommandArr.concat(['update-files', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -99,7 +101,7 @@ describe('An empty command based on foundry-release-base', function () {
   });
 
   describe('running commit', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/empty-command.js', 'commit']));
+    childUtils.exec(quote(emptyCommandArr.concat(['commit', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -112,7 +114,7 @@ describe('An empty command based on foundry-release-base', function () {
   });
 
   describe('running register', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/empty-command.js', 'register']));
+    childUtils.exec(quote(emptyCommandArr.concat(['register', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -125,7 +127,7 @@ describe('An empty command based on foundry-release-base', function () {
   });
 
   describe('running publish', function () {
-    childUtils.exec(quote(['node', __dirname + '/test-files/empty-command.js', 'publish']));
+    childUtils.exec(quote(emptyCommandArr.concat(['publish', '1.0.0', 'Hello World!'])));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
