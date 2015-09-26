@@ -105,7 +105,7 @@ describe('An empty command based on foundry-release-base', function () {
       expect(this.stderr).to.equal('');
     });
 
-    it('returns the expected text', function () {
+    it('has no output', function () {
       expect(this.stdout).to.match('');
     });
   });
@@ -118,7 +118,7 @@ describe('An empty command based on foundry-release-base', function () {
       expect(this.stderr).to.equal('');
     });
 
-    it('returns the expected text', function () {
+    it('has no output', function () {
       expect(this.stdout).to.match('');
     });
   });
@@ -131,7 +131,7 @@ describe('An empty command based on foundry-release-base', function () {
       expect(this.stderr).to.equal('');
     });
 
-    it('returns the expected text', function () {
+    it('has no output', function () {
       expect(this.stdout).to.match('');
     });
   });
