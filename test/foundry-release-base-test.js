@@ -4,7 +4,7 @@ var quote = require('shell-quote').quote;
 var childUtils = require('./utils/child');
 
 // Start our tests
-describe('A full command based on foundry-release-base', function () {
+describe.only('A full command based on foundry-release-base', function () {
   var fullCommandArr = ['node', __dirname + '/test-files/full-command.js'];
   describe('running --spec-version', function () {
     childUtils.exec(quote(fullCommandArr.concat(['--spec-version'])));
@@ -72,7 +72,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 });
 
-describe.only('An empty command based on foundry-release-base', function () {
+describe('An empty command based on foundry-release-base', function () {
   var emptyCommandArr = ['node', __dirname + '/test-files/empty-command.js'];
   describe('running --spec-version', function () {
     childUtils.exec(quote(emptyCommandArr.concat(['--spec-version'])));
