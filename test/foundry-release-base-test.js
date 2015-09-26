@@ -70,7 +70,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 });
 
-describe('An empty command based on foundry-release-base', function () {
+describe.only('An empty command based on foundry-release-base', function () {
   describe('running --spec-version', function () {
     childUtils.exec('empty-plugin --spec-version');
 
