@@ -1,11 +1,12 @@
 // Load in dependencies
 var expect = require('chai').expect;
+var quote = require('shell-quote').quote;
 var childUtils = require('./utils/child');
 
 // Start our tests
 describe('A full command based on foundry-release-base', function () {
   describe('running --spec-version', function () {
-    childUtils.exec('full-plugin --spec-version');
+    childUtils.exec(quote(['node', __dirname + '/test-files/full-plugin.js', '--spec-version']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -18,7 +19,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running update-files', function () {
-    childUtils.exec('full-plugin update-files');
+    childUtils.exec(quote(['node', __dirname + '/test-files/full-plugin.js', 'update-files']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -31,7 +32,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running commit', function () {
-    childUtils.exec('full-plugin commit');
+    childUtils.exec(quote(['node', __dirname + '/test-files/full-plugin.js', 'commit']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -44,7 +45,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running register', function () {
-    childUtils.exec('full-plugin register');
+    childUtils.exec(quote(['node', __dirname + '/test-files/full-plugin.js', 'register']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -57,7 +58,7 @@ describe('A full command based on foundry-release-base', function () {
   });
 
   describe('running publish', function () {
-    childUtils.exec('full-plugin publish');
+    childUtils.exec(quote(['node', __dirname + '/test-files/full-plugin.js', 'publish']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -72,7 +73,7 @@ describe('A full command based on foundry-release-base', function () {
 
 describe.only('An empty command based on foundry-release-base', function () {
   describe('running --spec-version', function () {
-    childUtils.exec('empty-plugin --spec-version');
+    childUtils.exec(quote(['node', __dirname + '/test-files/empty-plugin.js', '--spec-version']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -85,7 +86,7 @@ describe.only('An empty command based on foundry-release-base', function () {
   });
 
   describe('running update-files', function () {
-    childUtils.exec('empty-plugin update-files');
+    childUtils.exec(quote(['node', __dirname + '/test-files/empty-plugin.js', 'update-files']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -98,7 +99,7 @@ describe.only('An empty command based on foundry-release-base', function () {
   });
 
   describe('running commit', function () {
-    childUtils.exec('empty-plugin commit');
+    childUtils.exec(quote(['node', __dirname + '/test-files/empty-plugin.js', 'commit']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -111,7 +112,7 @@ describe.only('An empty command based on foundry-release-base', function () {
   });
 
   describe('running register', function () {
-    childUtils.exec('empty-plugin register');
+    childUtils.exec(quote(['node', __dirname + '/test-files/empty-plugin.js', 'register']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -124,7 +125,7 @@ describe.only('An empty command based on foundry-release-base', function () {
   });
 
   describe('running publish', function () {
-    childUtils.exec('empty-plugin publish');
+    childUtils.exec(quote(['node', __dirname + '/test-files/empty-plugin.js', 'publish']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
