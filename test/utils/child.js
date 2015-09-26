@@ -7,7 +7,7 @@ exports.exec = function (command) {
     // Run our command
     var that = this;
     exec(command, function handleExec (err, stdout, stderr) {
-      // Save all our variables to `this`
+      // Save our results
       that.err = err;
       that.stdout = stdout;
       that.stderr = stderr;
@@ -15,5 +15,12 @@ exports.exec = function (command) {
       // Callback with no errors
       done();
     });
+  });
+
+  after(function cleanup () {
+    // Clean up our exec results
+    delete this.err;
+    delete this.stdout;
+    delete this.stderr;
   });
 };
