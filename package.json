@@ -1,0 +1,41 @@
+{
+  "name": "foundry-release-base",
+  "description": "CLI base for foundry release commands",
+  "version": "1.0.0",
+  "homepage": "https://github.com/twolfson/foundry-release-base",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/foundry-release-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/foundry-release-base/issues"
+  },
+  "main": "lib/foundry-release-base",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "license": "Unlicense",
+  "scripts": {
+    "precheck": "twolfson-style precheck lib/ test/",
+    "lint": "twolfson-style lint lib/ test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run precheck && mocha --reporter dot && npm run lint"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jscs": "~1.7.3",
+    "jshint": "~2.5.10",
+    "mocha": "~1.11.0",
+    "twolfson-style": "~1.6.0"
+  },
+  "keywords": [
+    "foundry",
+    "release",
+    "base"
+  ]
+}
