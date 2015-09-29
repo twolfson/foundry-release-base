@@ -65,7 +65,7 @@ node my-release-command.js publish "1.0.0" "Release 1.0.0"
             - cb `Function` - Error-first callback to notify `FoundryReleaseBase` of when task is complete
                 - Function signature will be `function (err)` where `err` is either an `Error` or `null`
                 - Upon non-error callback, we will exit with a 0 exit code
-                - Upon error callback, we will throw the `Error` which leads to a 1 exit code
+                - Upon error callback, we will throw the `Error` which leads to a non-zero exit code
     - updateFilesDescription `String` - Optional description to use for `update-files` command in `--help`
     - commit `Function` - Optional function that saves changes to files as part of its release
         - For example, this could run `git commit` for a `git` release
