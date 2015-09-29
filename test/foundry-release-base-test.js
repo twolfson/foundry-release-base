@@ -139,3 +139,31 @@ describe('An empty command based on foundry-release-base', function () {
     });
   });
 });
+
+describe('An error-prone command command based on foundry-release-base', function () {
+  var emptyCommandArr = ['node', __dirname + '/test-files/error-command.js'];
+
+  describe('running update-files (thrown)', function () {
+    childUtils.exec(quote(emptyCommandArr.concat(['update-files', '1.0.0', 'Hello World!'])));
+
+    it('has a non-zero exit code', function () {
+      expect(this.err).to.not.equal(null);
+    });
+
+    it('has stderr output', function () {
+      expect(this.stderr).to.contain('Error thrown: updateFiles 1.0.0 Hello World!');
+    });
+  });
+
+  describe('running commit (callback)', function () {
+    childUtils.exec(quote(emptyCommandArr.concat(['commit', '1.0.0', 'Hello World!'])));
+
+    it('has a non-zero exit code', function () {
+      expect(this.err).to.not.equal(null);
+    });
+
+    it('has stderr output', function () {
+      expect(this.stderr).to.contain('Error callback: commit 1.0.0 Hello World!');
+    });
+  });
+});
