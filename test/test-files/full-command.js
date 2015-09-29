@@ -3,21 +3,21 @@ var FoundryReleaseBase = require('../../');
 
 // Define our parser
 var fullReleaseCommand = new FoundryReleaseBase({
-  updateFiles: function (version, message) {
-    console.log('Step run: update-files ' + version + ' ' + message);
-    process.exit(0);
+  updateFiles: function (params, cb) {
+    console.log('Step run: update-files ' + params.version + ' ' + params.message);
+    process.nextTick(cb);
   },
-  commit: function (version, message) {
-    console.log('Step run: commit ' + version + ' ' + message);
-    process.exit(0);
+  commit: function (params, cb) {
+    console.log('Step run: commit ' + params.version + ' ' + params.message);
+    process.nextTick(cb);
   },
-  register: function (version, message) {
-    console.log('Step run: register ' + version + ' ' + message);
-    process.exit(0);
+  register: function (params, cb) {
+    console.log('Step run: register ' + params.version + ' ' + params.message);
+    process.nextTick(cb);
   },
-  publish: function (version, message) {
-    console.log('Step run: publish ' + version + ' ' + message);
-    process.exit(0);
+  publish: function (params, cb) {
+    console.log('Step run: publish ' + params.version + ' ' + params.message);
+    process.nextTick(cb);
   }
 });
 fullReleaseCommand.parse(process.argv);
