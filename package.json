@@ -1,7 +1,7 @@
 {
   "name": "foundry-release-base",
   "description": "CLI base for foundry release commands",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/twolfson/foundry-release-base",
   "author": {
     "name": "Todd Wolfson",
