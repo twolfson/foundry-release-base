@@ -6,7 +6,7 @@ var childUtils = require('./utils/child');
 describe('A full command based on foundry-release-base', function () {
   var fullCommandArr = [__dirname + '/test-files/full-command.js'];
   describe('running --sversion', function () {
-    childUtils.spawn('node', fullCommandArr.concat(['--sversion']));
+    childUtils.spawn('node', fullCommandArr.concat(['-sversion']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
