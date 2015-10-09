@@ -1,4 +1,4 @@
-# foundry-release-base [![Build status](https://travis-ci.org/twolfson/foundry-release-base.png?branch=master)](https://travis-ci.org/twolfson/foundry-release-base)
+# foundry-release-base [![Build status](https://travis-ci.org/twolfson/foundry-release-base.png?branch=master)](https://travis-ci.org/twolfson/foundry-release-base) [![Build status](https://ci.appveyor.com/api/projects/status/spoi5veh3r3jo98m/branch/master?svg=true)](https://ci.appveyor.com/project/twolfson/foundry-release-base/branch/master)
 
 CLI base for [foundry][] release commands
 
