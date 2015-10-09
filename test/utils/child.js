@@ -9,6 +9,7 @@ exports.spawn = function (command, args) {
     bufferedSpawn(command, args, function handleBufferedSpawn (err, stdout, stderr) {
       // Save our results
       that.err = err;
+      console.log('results', err, stdout, stderr);
       that.stdout = stdout;
       that.stderr = stderr;
 
