@@ -5,8 +5,8 @@ var childUtils = require('./utils/child');
 // Start our tests
 describe('A full command based on foundry-release-base', function () {
   var fullCommandArr = [__dirname + '/test-files/full-command.js'];
-  describe('running --sversion', function () {
-    childUtils.spawn('node', fullCommandArr.concat(['-sversion']));
+  describe('running --spec-version', function () {
+    childUtils.spawn('node', fullCommandArr.concat(['--spec-version']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
@@ -73,8 +73,8 @@ describe('A full command based on foundry-release-base', function () {
 
 describe('An empty command based on foundry-release-base', function () {
   var emptyCommandArr = [__dirname + '/test-files/empty-command.js'];
-  describe('running --sversion', function () {
-    childUtils.spawn('node', emptyCommandArr.concat(['--sversion']));
+  describe('running --spec-version', function () {
+    childUtils.spawn('node', emptyCommandArr.concat(['--spec-version']));
 
     it('has no errors', function () {
       expect(this.err).to.equal(null);
