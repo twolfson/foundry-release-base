@@ -1,12 +1,12 @@
 // Load in our dependencies
-var exec = require('child_process').exec;
+var bufferedSpawn = require('bufered-spawn');
 
 // Define our utilities
-exports.exec = function (command) {
-  before(function execFn (done) {
+exports.spawn = function (command) {
+  before(function spawnFn (done) {
     // Run our command
     var that = this;
-    exec(command, function handleExec (err, stdout, stderr) {
+    bufferedSpawn(command, function handleBufferedSpawn (err, stdout, stderr) {
       // Save our results
       that.err = err;
       that.stdout = stdout;
@@ -18,7 +18,7 @@ exports.exec = function (command) {
   });
 
   after(function cleanup () {
-    // Clean up our exec results
+    // Clean up our results
     delete this.err;
     delete this.stdout;
     delete this.stderr;
