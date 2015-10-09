@@ -15,7 +15,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the spec version', function () {
-      expect(this.stdout).to.match(/^\d+\.\d+\.\d+\n$/);
+      expect(this.stdout).to.match(/^\d+\.\d+\.\d+\r?\n$/);
     });
   });
 
@@ -28,7 +28,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the expected text', function () {
-      expect(this.stdout).to.equal('Step run: update-files 1.0.0 Hello World!\n');
+      expect(this.stdout).to.match(/^Step run: update-files 1.0.0 Hello World!\r?\n$/);
     });
   });
 
@@ -41,7 +41,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the expected text', function () {
-      expect(this.stdout).to.equal('Step run: commit 1.0.0 Hello World!\n');
+      expect(this.stdout).to.match(/^Step run: commit 1.0.0 Hello World!\r?\n/);
     });
   });
 
@@ -54,7 +54,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the expected text', function () {
-      expect(this.stdout).to.equal('Step run: register 1.0.0 Hello World!\n');
+      expect(this.stdout).to.match(/^Step run: register 1.0.0 Hello World!\r?\n/);
     });
   });
 
@@ -67,7 +67,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the expected text', function () {
-      expect(this.stdout).to.equal('Step run: publish 1.0.0 Hello World!\n');
+      expect(this.stdout).to.equal(/^Step run: publish 1.0.0 Hello World!\r?\n/);
     });
   });
 });
@@ -83,7 +83,7 @@ describe('An empty command based on foundry-release-base', function () {
     });
 
     it('returns the spec version', function () {
-      expect(this.stdout).to.match(/^\d+\.\d+\.\d+\n$/);
+      expect(this.stdout).to.match(/^\d+\.\d+\.\d+\r?\n$/);
     });
   });
 
