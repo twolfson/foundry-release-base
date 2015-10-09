@@ -1,12 +1,12 @@
 // Load in our dependencies
-var bufferedSpawn = require('bufered-spawn');
+var bufferedSpawn = require('buffered-spawn');
 
 // Define our utilities
-exports.spawn = function (command) {
+exports.spawn = function (command, args) {
   before(function spawnFn (done) {
     // Run our command
     var that = this;
-    bufferedSpawn(command, function handleBufferedSpawn (err, stdout, stderr) {
+    bufferedSpawn(command, args, function handleBufferedSpawn (err, stdout, stderr) {
       // Save our results
       that.err = err;
       that.stdout = stdout;
