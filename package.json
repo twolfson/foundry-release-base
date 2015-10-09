@@ -34,11 +34,11 @@
     "commander": "~2.8.1"
   },
   "devDependencies": {
+    "buffered-spawn": "~1.1.2",
     "chai": "~3.3.0",
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
     "mocha": "~1.11.0",
-    "shell-quote": "~1.4.3",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
