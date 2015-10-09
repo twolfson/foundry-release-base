@@ -67,7 +67,7 @@ describe('A full command based on foundry-release-base', function () {
     });
 
     it('returns the expected text', function () {
-      expect(this.stdout).to.equal(/^Step run: publish 1.0.0 Hello World!\r?\n/);
+      expect(this.stdout).to.match(/^Step run: publish 1.0.0 Hello World!\r?\n/);
     });
   });
 });
