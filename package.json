@@ -28,7 +28,7 @@
     "pretest": "twolfson-style install",
     "pretest-windows": "twolfson-style install",
     "test": "npm run precheck && mocha --reporter dot && npm run lint",
-    "test-windows": "npm run precheck-windows && mocha --reporter spec --timeout 10000 --bail && npm run lint-windows"
+    "test-windows": "npm run precheck-windows && mocha --reporter spec --timeout 10000 && npm run lint-windows"
   },
   "dependencies": {
     "commander": "~2.8.1"
