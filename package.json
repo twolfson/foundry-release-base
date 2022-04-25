@@ -36,12 +36,12 @@
   "devDependencies": {
     "buffered-spawn": "~1.1.2",
     "chai": "~3.3.0",
-    "foundry": "~4.0.4",
+    "foundry": "~4.6.0",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
     "jscs": "~1.7.3",
-    "jshint": "~2.5.10",
-    "mocha": "~2.3.3",
+    "jshint": "~2.13.4",
+    "mocha": "~8.4.0",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [
